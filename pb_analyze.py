@@ -6,22 +6,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import tushare as ts
 
-from jaqs.data import DataApi
-
-
 if __name__ == '__main__':
-    phone = '13706519134'
-    token = 'eyJhbGciOiJIUzI1NiJ9.eyJjcmVhdGVfdGltZSI6IjE1MTM0ODE2NTM4MTAiLCJpc3MiOiJhdXRoMCIsImlkIjoiMTM3MDY1MTkxMzQifQ.6wOPdEDGnSBwMzb3dDVp_8LPBT0UbHqnFFvCc15bL_U'
     cwd = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-    api = DataApi("tcp://data.tushare.org:8910")
-    df, msg = api.login(phone, token)
-    retCode = int(msg.split(',')[0])
-
-    if retCode != 0:
-        print('login fail! exit ..')
-        print(msg.split(',')[1])
-        exit(-1)
 
     #overall data
     df = ts.get_stock_basics()
